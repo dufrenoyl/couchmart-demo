@@ -18,7 +18,7 @@ SDK_CLIENT = Bucket('couchbase://{0}/{1}'.format(node, bucket_name),
 
 SDK_CLIENT.timeout = 15
 
-LIST_DOC = "ludo.all_the_products"
+LIST_DOC = "david.all_the_products"
 
 PRODUCTS = [
     {"name": "Pommes", "description": "Delicieuses pommes",
@@ -53,7 +53,7 @@ PRODUCTS = [
     "price": 1.00, "category": "boisson", "image": "vin.png", "stock": 100},
     {"name": "Whisky", "description": "Scotch Whisky Blended CHIVAS",
     "price": 1.00, "category": "boisson", "image": "whisky.png", "stock": 100},
-    {"name": "fraises MatLou", "description": "Fabriquees avec des colorants d'origine naturelle",
+    {"name": "Fraises MatLou", "description": "Fabriquees avec des colorants d'origine naturelle",
     "price": 1.00, "category": "epicerie", "image": "fraises.png", "stock": 100},
     {"name": "dragibus", "description": "Bonbons Dragibus black surprise",
     "price": 1.00, "category": "epicerie", "image": "dragibus.png", "stock": 100},
@@ -86,7 +86,7 @@ def check_and_create_view():
         print (row)
 
 
-list_doc = {"type": "product-list", "owner": "ludo",
+list_doc = {"type": "product-list", "owner": "david",
             "name": "List of all products"}
 
 
@@ -104,7 +104,7 @@ def add_products():
         product['createdAt'] = i
         i += 1
         product['product'] = product['name']
-        product['productList'] = {"id": LIST_DOC, "owner": "ludovic"}
+        product['productList'] = {"id": LIST_DOC, "owner": "david"}
         SDK_CLIENT.upsert(product_id, product)
     SDK_CLIENT.upsert("items", {"items": items})
 
